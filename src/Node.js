@@ -17,4 +17,8 @@ export class Node {
   setNextNode(Node) {
     this.nextNode = Node;
   }
+
+  setValue(value) {
+    this.value = value;
+  }
 }

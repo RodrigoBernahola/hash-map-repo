@@ -119,6 +119,22 @@ export class LinkedList {
     return res;
   }
 
+  findIndexOfKey(key) {
+    let res = -1;
+    if (this.size() === 0) return res;
+
+    let index = 0;
+    let currentNode = this.headNode;
+
+    while (currentNode !== null) {
+      if (currentNode.getCurrentValue().key === key) return index;
+      index++;
+      currentNode = currentNode.getNextNode();
+    }
+
+    return res;
+  }
+
   toString() {
     let res = "";
     if (this.size() === 0) return res;
