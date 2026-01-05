@@ -1,122 +1,59 @@
-# Template de Desarrollo Web Moderno
+# Custom Hash Map Implementation
 
-Plantilla preconfigurada con Webpack, ESLint, Prettier y herramientas de desarrollo modernas.
+Una implementación eficiente y completa de una estructura de datos **Hash Map** (Tabla Hash) en JavaScript. Este proyecto demuestra el manejo profundo de la asignación de memoria, funciones de hash y resolución de colisiones mediante listas enlazadas.
 
-## 🚀 Características
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript&logoColor=black)
+![Webpack](https://img.shields.io/badge/Webpack-5.0+-8DD6F9?logo=webpack&logoColor=black)
+![Data Structures](https://img.shields.io/badge/CS-Data%20Structures-red)
 
-- ⚡ **Webpack 5** - Empaquetado y optimización de código
-- 🎨 **CSS Loader** - Soporte para estilos CSS
-- 🔍 **ESLint** - Análisis de código y detección de errores
-- 💅 **Prettier** - Formateo automático de código
-- 🔥 **Hot Reload** - Recarga automática en desarrollo
-- 📦 **Optimización para producción** - Código minificado y optimizado
+## 📋 Descripción
 
-## 📋 Requisitos
+Este repositorio contiene una implementación desde cero de un Hash Map. A diferencia de los objetos nativos de JavaScript o la clase `Map`, esta implementación expone la lógica interna de cómo se almacenan los pares clave-valor, cómo se distribuyen en "buckets" y cómo se gestiona el rendimiento a medida que los datos crecen.
 
-- Node.js >= 14.0.0
-- npm >= 6.0.0
+### Características Principales
 
-## 🛠️ Instalación
+- **Algoritmo de Hashing:** Convierte claves (strings) en índices numéricos para su almacenamiento optimizado.
+- **Manejo de Colisiones:** Implementa la estrategia de **Separate Chaining** (Encadenamiento Separado) utilizando una clase `LinkedList` personalizada para gestionar múltiples entradas en el mismo bucket.
+- **Redimensionamiento Dinámico:** El mapa monitorea su "Factor de Carga" (Load Factor). Cuando la capacidad supera el umbral (0.75), el mapa duplica su tamaño y re-distribuye (re-hash) todos los elementos automáticamente.
+- **Operaciones CRUD Completas:**
+  - `set(key, value)`: Inserta o actualiza valores.
+  - `get(key)`: Recupera valores instantáneamente.
+  - `remove(key)`: Elimina entradas específicas.
+  - `has(key)`: Verifica existencia.
+- **Métodos Auxiliares:** `keys()`, `values()`, `entries()`, `length()` y `clear()`.
 
-```bash
-# Clonar el repositorio
-git clone <url-del-repositorio>
+## 🚀 Instalación y Uso
 
-# Entrar al directorio
-cd practica-npm-config
+1.  **Clonar el repositorio:**
+    ```bash
+    git clone [https://github.com/rodrigobernahola/hash-map-repo.git](https://github.com/rodrigobernahola/hash-map-repo.git)
+    cd hash-map-repo
+    ```
 
-# Instalar dependencias
-npm install
-```
+2.  **Instalar dependencias:**
+    ```bash
+    npm install
+    ```
 
-## 🎯 Comandos disponibles
+3.  **Ejecutar modo desarrollo:**
+    ```bash
+    npm start
+    ```
+    Esto compilará el proyecto con Webpack y ejecutará el script principal (`src/index.js`), donde podrás ver las pruebas de funcionamiento en la consola del navegador o terminal.
 
-### Desarrollo
+## 🛠️ Tecnologías y Estructura
 
-```bash
-npm run dev           # Inicia servidor de desarrollo en http://localhost:8080
-```
+- **Lenguaje:** JavaScript (ES6 Modules)
+- **Herramientas:** Webpack, ESLint, Prettier
+- **Estructuras de Datos:**
+  - `HashMap`: Clase principal.
+  - `LinkedList`: Usada para los buckets.
+  - `Node`: Unidad básica de almacenamiento.
 
-### Producción
+## ✒️ Autor
 
-```bash
-npm run build         # Genera build optimizado en carpeta dist/
-```
+* **Rodrigo Bernahola** - [Perfil de GitHub](https://github.com/rodrigobernahola)
 
-### Calidad de código
-
-```bash
-npm run lint          # Analiza todo el código con ESLint
-npm run lint:fix      # Corrige errores automáticamente
-npm run lint:src      # Analiza solo carpeta src/
-npm run lint:src:fix  # Corrige errores solo en src/
-```
-
-### Formateo
-
-```bash
-npm run format        # Formatea todo el código con Prettier
-npm run format:check  # Verifica formato sin modificar
-npm run format:src    # Formatea solo carpeta src/
-```
-
-## 📁 Estructura del proyecto
-
-```
-proyecto/
-├── src/                    # Código fuente
-│   ├── index.js           # Punto de entrada JavaScript
-│   ├── styles.css         # Estilos principales
-│   └── template.html      # Plantilla HTML
-├── dist/                   # Build generado (no versionar)
-├── node_modules/          # Dependencias (no versionar)
-├── webpack.common.js      # Configuración compartida de Webpack
-├── webpack.dev.js         # Configuración para desarrollo
-├── webpack.prod.js        # Configuración para producción
-├── eslint.config.js       # Configuración de ESLint
-├── .prettierrc.json       # Configuración de Prettier
-├── .prettierignore        # Archivos ignorados por Prettier
-├── .gitignore             # Archivos ignorados por Git
-└── package.json           # Dependencias y scripts
-```
-
-## 🔧 Configuración
-
-### Webpack
-
-- `webpack.common.js`: Configuración base compartida
-- `webpack.dev.js`: Modo desarrollo con source maps
-- `webpack.prod.js`: Modo producción con optimizaciones
-
-### ESLint
-
-Configurado con:
-
-- Reglas recomendadas de ESLint
-- Integración con Prettier
-- Soporte para ES2024
-
-### Prettier
-
-Configurado con:
-
-- Punto y coma al final
-- Comillas simples
-- 80 caracteres por línea
-- 2 espacios de indentación
-
-## 📝 Flujo de trabajo recomendado
-
-1. **Desarrollo**: `npm run dev`
-2. **Escribir código** en `src/`
-3. **Guardar cambios** (auto-formato con editor)
-4. **Revisar código**: `npm run lint`
-5. **Build producción**: `npm run build`
-
-## 📄 Licencia
-
-ISC
-
-## ✍️ Autor
-
-Rodrigo Bernahola
+---
+_Proyecto desarrollado como parte del currículo de [The Odin Project](https://www.theodinproject.com/)_
